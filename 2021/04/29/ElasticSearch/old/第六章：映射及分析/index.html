@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>映射及分析 | 聽雨聲-成功來源於不斷的堅持</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Elasticsearch中的数据可以大致分为两种类型：  确切值是确定的，确切值 “Foo” 和 “foo” 就并不相同 全文文本常常被称为 非结构化数据   Elasticsearch使用一种叫做倒排索引(inverted index)的结构来做快速的全文搜索  分词(analysis)：表征化和标准化的过程  分析和分析器  字符过滤器：首先字符串经过字符过滤器(character fil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="映射及分析">
+<meta property="og:url" content="https://blogs.bflove.cn/2021/04/29/ElasticSearch/old/%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E6%98%A0%E5%B0%84%E5%8F%8A%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="聽雨聲-成功來源於不斷的堅持">
+<meta property="og:description" content="Elasticsearch中的数据可以大致分为两种类型：  确切值是确定的，确切值 “Foo” 和 “foo” 就并不相同 全文文本常常被称为 非结构化数据   Elasticsearch使用一种叫做倒排索引(inverted index)的结构来做快速的全文搜索  分词(analysis)：表征化和标准化的过程  分析和分析器  字符过滤器：首先字符串经过字符过滤器(character fil">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-29T11:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-09T14:59:15.930Z">
+<meta property="article:author" content="聽雨聲">
+<meta property="article:tag" content="ElasticSearch">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="聽雨聲-成功來源於不斷的堅持" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">聽雨聲-成功來源於不斷的堅持</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blogs.bflove.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="6.-ElasticSearch/old/第六章：映射及分析" class="article article-type-6." itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/29/ElasticSearch/old/%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E6%98%A0%E5%B0%84%E5%8F%8A%E5%88%86%E6%9E%90/" class="article-date">
+  <time datetime="2021-04-29T11:00:00.000Z" itemprop="datePublished">2021-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      映射及分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Elasticsearch中的数据可以大致分为两种类型：</p>
+<ol>
+<li>确切值是确定的，确切值 “Foo” 和 “foo” 就并不相同</li>
+<li>全文文本常常被称为 非结构化数据</li>
+</ol>
+</li>
+<li><p>Elasticsearch使用一种叫做倒排索引(inverted index)的结构来做快速的全文搜索</p>
+</li>
+<li><p>分词(analysis)：表征化和标准化的过程</p>
+</li>
+<li><p>分析和分析器</p>
+<ol>
+<li>字符过滤器：首先字符串经过字符过滤器(character filter)，它们的工作是在表征化（译者注：这个词叫做断词更合适）前处理字符串。<br>字符过滤器能够去除HTML标记，或者转换 “&amp;” 为 “and” 。</li>
+<li>分词器：分词器(tokenizer)被表征化（断词）为独立的词。一个简单的分词器(tokenizer)可以根据空格或逗号将单词分开</li>
+<li>表征过滤：每个词都通过所有表征过滤(token filters)，它可以修改词（例如将 “Quick” 转为小写），去掉词（例如停用词<br>像 “a” 、 “and”``”the” 等等），或者增加词（例如同义词像 “jump” 和 “leap” ）</li>
+</ol>
+</li>
+<li><p>请求体查询</p>
+<ol>
+<li>空查询：返回索引中所有的文档<pre><code>GET /_search
+{} &lt;1&gt;</code></pre></li>
+<li>同字符串查询一样，你可以查询一个，多个或 _all 索引(indices)或类型(types)：<pre><code>GET /index_2014*/type1,type2/_search
+{}</code></pre> 你可以使用 from 及 size 参数进行分页：<pre><code>GET /_search
+{
+&quot;from&quot;: 30,
+&quot;size&quot;: 10
+}</code></pre></li>
+</ol>
+</li>
+<li><p>结构化查询 Query DSL</p>
+<ol>
+<li><p>结构化查询是一种灵活的，多表现形式的查询语言。 Elasticsearch在一个简单的JSON接口中用结构化查询来展现Lucene绝大多数能力。 你应当在你的产品中采用这种方式进行查询。<br>使用结构化查询，你需要传递 query 参数：</p>
+<pre><code>GET /_search
+{
+    &quot;query&quot;: YOUR_QUERY_HERE
+}</code></pre></li>
+<li><p>空查询 - {} - 在功能上等同于使用 match_all 查询子句，正如其名字一样，匹配所有的文档：</p>
+<pre><code>GET /_search
+{
+    &quot;query&quot;: {
+        &quot;match_all&quot;: {}
+    }
+}</code></pre></li>
+<li><p>合并多子句<br> 一条过滤语句会询问每个文档的字段值是否包含着特定值：<br> 是否 created 的日期范围在 2013 到 2014 ?<br> 是否 status 字段中包含单词 “published” ?<br> 是否 lat_lon 字段中的地理位置与目标点相距不超过10km ?</p>
+</li>
+<li><p>查询过滤语句<br> term 过滤，term 主要用于精确匹配哪些值，比如数字，日期，布尔值或 not_analyzed 的字符串(未经分析的文本数据类型)：</p>
+<pre><code>{ &quot;term&quot;: { &quot;age&quot;: 26 }}
+{ &quot;term&quot;: { &quot;date&quot;: &quot;2014-09-01&quot; }}
+{ &quot;term&quot;: { &quot;public&quot;: true }}
+{ &quot;term&quot;: { &quot;tag&quot;: &quot;full_text&quot; }}</code></pre><p> terms 过滤，与term类似，但 terms 允许指定多个匹配条件。</p>
+<pre><code>{
+    &quot;terms&quot;: {
+        &quot;tag&quot;: [ &quot;search&quot;, &quot;full_text&quot;, &quot;nosql&quot; ]
+    }
+}</code></pre></li>
+<li><p>range 过滤,允许我们按照指定范围查找一批数据：gt：大于、gte：大于等于、lt：小于、lte：小于等于</p>
+<pre><code>{
+    &quot;range&quot;: {
+        &quot;age&quot;: {
+            &quot;gte&quot;: 20,
+            &quot;lt&quot;: 30
+        }
+    }
+}</code></pre></li>
+<li><p>exists 和 missing 过滤，用于查找文档中是否包含指定字段或没有某个字段</p>
+<pre><code>{
+    &quot;exists&quot;: {
+    &quot;field&quot;: &quot;title&quot;
+    }
+}</code></pre></li>
+<li><p>bool 过滤，用来合并多个过滤条件查询结果的布尔逻辑，它包含一下操作符：</p>
+<pre><code>must :: 多个查询条件的完全匹配,相当于 and 。
+must_not :: 多个查询条件的相反匹配，相当于 not 。
+should :: 至少有一个查询条件匹配, 相当于 or 。
+{
+    &quot;bool&quot;: {
+        &quot;must&quot;: { &quot;term&quot;: { &quot;folder&quot;: &quot;inbox&quot; }},
+        &quot;must_not&quot;: { &quot;term&quot;: { &quot;tag&quot;: &quot;spam&quot; }},
+        &quot;should&quot;: [
+                { &quot;term&quot;: { &quot;starred&quot;: true }},
+                { &quot;term&quot;: { &quot;unread&quot;: true }}
+            ]
+    }
+}</code></pre></li>
+<li><p>match_all 查询，可以查询到所有文档，是没有查询条件下的默认语句。</p>
+<pre><code>{
+    &quot;match_all&quot;: {}
+}</code></pre></li>
+<li><p>match 查询，是一个标准查询</p>
+<pre><code>{
+    &quot;match&quot;: {
+        &quot;tweet&quot;: &quot;About Search&quot;
+    }
+}</code></pre></li>
+<li><p>multi_match 查询,允许你做 match 查询的基础上同时搜索多个字段：</p>
+<pre><code>{
+    &quot;multi_match&quot;: {
+        &quot;query&quot;: &quot;full text search&quot;,
+        &quot;fields&quot;: [ &quot;title&quot;, &quot;body&quot; ]
+    }
+}</code></pre></li>
+<li><p>bool 查询,bool 查询与 bool 过滤相似，用于合并多个查询子句。不同的是， bool 过滤可以直接给出是否匹配成功， 而 bool 查询要计算每一个查询子句的 _score （相关性分值）。<br>must :: 查询指定文档一定要被包含。<br>must_not :: 查询指定文档一定不要被包含。<br>should :: 查询指定文档，有则可以为文档相关性加分。<br>以下查询将会找到 title 字段中包含 “how to make millions”，并且 “tag” 字段没有被标为 spam 。 如果有标识为 “starred”<br>或者发布日期为2014年之前，那么这些匹配的文档将比同类网站等级高：</p>
+<pre><code>{
+    &quot;bool&quot;: {
+    &quot;must&quot;: { &quot;match&quot;: { &quot;title&quot;: &quot;how to make millions&quot; }},
+    &quot;must_not&quot;: { &quot;match&quot;: { &quot;tag&quot;: &quot;spam&quot; }},
+    &quot;should&quot;: [
+            { &quot;match&quot;: { &quot;tag&quot;: &quot;starred&quot; }},
+            { &quot;range&quot;: { &quot;date&quot;: { &quot;gte&quot;: &quot;2014-01-01&quot; }}}
+        ]
+    }
+}</code></pre></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/04/29/ElasticSearch/old/%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E6%98%A0%E5%B0%84%E5%8F%8A%E5%88%86%E6%9E%90/" data-id="cl2yutsf80021dovc4pon3vg0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/29/ElasticSearch/old/%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E7%9B%B8%E5%85%B3%E6%80%A7%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          相关性排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/29/ElasticSearch/old/%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E6%90%9C%E7%B4%A2%E4%B8%8E%E6%98%A0%E5%B0%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">搜索与映射</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/">.Net</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/">Framework</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/Dapr/">Dapr</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag">CSharp基础语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="tag">DI 依赖注入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es/" rel="tag">Es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOC/" rel="tag">IOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore/" rel="tag">NetCore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore%E9%94%99%E8%AF%AF/" rel="tag">NetCore错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dapr/" rel="tag">dapr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" rel="tag">配置(Configuration)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 16px;">CSharp基础语法</a> <a href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" style="font-size: 10px;">DI 依赖注入</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/ElasticSearch/" style="font-size: 20px;">ElasticSearch</a> <a href="/tags/Es/" style="font-size: 18px;">Es</a> <a href="/tags/Framework/" style="font-size: 12px;">Framework</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/NetCore/" style="font-size: 10px;">NetCore</a> <a href="/tags/NetCore%E9%94%99%E8%AF%AF/" style="font-size: 10px;">NetCore错误</a> <a href="/tags/dapr/" style="font-size: 10px;">dapr</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 12px;">设计模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" style="font-size: 10px;">配置(Configuration)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/09/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/%E5%8F%8D%E5%B0%84/">高级编程/反射</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/1.%20%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%AE%A9%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%BD%BB%E6%9D%BE%E4%BD%BF%E7%94%A8Dapr/">1. 一行代码让你的项目轻松使用Dapr</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/2.%20%E8%AE%A9%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E6%9B%B4%E7%AE%80%E5%8D%95/">2. 让服务调用更简单 - Caller.HttpClient</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/4.%20%E5%88%86%E8%AF%8D/">4. 分词</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/3.%20%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/">3. 字段类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 聽雨聲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

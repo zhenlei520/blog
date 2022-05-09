@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>trackBug | 聽雨聲-成功來源於不斷的堅持</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="错误提示：1234The instance of entity type &#39;CatalogBrand&#39; cannot be tracked because another instance with the same key value for &amp;#123;&#39;Id&#39;&amp;#125; is already being tracked. When attaching exi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="trackBug">
+<meta property="og:url" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/index.html">
+<meta property="og:site_name" content="聽雨聲-成功來源於不斷的堅持">
+<meta property="og:description" content="错误提示：1234The instance of entity type &#39;CatalogBrand&#39; cannot be tracked because another instance with the same key value for &amp;#123;&#39;Id&#39;&amp;#125; is already being tracked. When attaching exi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/3.png">
+<meta property="og:image" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/4.png">
+<meta property="og:image" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/1.png">
+<meta property="og:image" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/2.png">
+<meta property="og:image" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/5.jpg">
+<meta property="article:published_time" content="2021-10-22T02:45:00.000Z">
+<meta property="article:modified_time" content="2022-05-09T14:59:15.919Z">
+<meta property="article:author" content="聽雨聲">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/3.png">
+  
+    <link rel="alternate" href="/atom.xml" title="聽雨聲-成功來源於不斷的堅持" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">聽雨聲-成功來源於不斷的堅持</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blogs.bflove.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EFCore查询优化/trackBug" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/" class="article-date">
+  <time datetime="2021-10-22T02:45:00.000Z" itemprop="datePublished">2021-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      trackBug
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="错误提示">错误提示：</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The instance of entity type &#39;CatalogBrand&#39; cannot be tracked </span><br><span class="line">because another instance with the same key value for &#123;&#39;Id&#39;&#125; is already being tracked. </span><br><span class="line">When attaching existing entities, ensure that only one entity instance with a given key value is attached. </span><br><span class="line">Consider using &#39;DbContextOptionsBuilder.EnableSensitiveDataLogging&#39; to see the conflicting key values.</span><br></pre></td></tr></table></figure>
+
+<h3><span id="场景再现">场景再现：</span></h3><p>基本类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class CatalogBrand</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;&#x2F; &lt;summary&gt;</span><br><span class="line">    &#x2F;&#x2F;&#x2F; 主键id，自增</span><br><span class="line">    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;</span><br><span class="line">    public int Id &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    public string Brand &#123; get; set; &#125; &#x3D; null!;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CatalogBrandEntityTypeConfiguration</span><br><span class="line">    : IEntityTypeConfiguration&lt;CatalogBrand&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public void Configure(EntityTypeBuilder&lt;CatalogBrand&gt; builder)</span><br><span class="line">    &#123;</span><br><span class="line">        builder.ToTable(&quot;CatalogBrand&quot;);</span><br><span class="line"></span><br><span class="line">        builder.HasKey(ci &#x3D;&gt; ci.Id);</span><br><span class="line"></span><br><span class="line">        builder.Property(ci &#x3D;&gt; ci.Id)</span><br><span class="line">           .IsRequired();</span><br><span class="line"></span><br><span class="line">        builder.Property(cb &#x3D;&gt; cb.Brand)</span><br><span class="line">            .IsRequired()</span><br><span class="line">            .HasMaxLength(100);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class CatalogDbContext : DbContext</span><br><span class="line">&#123;</span><br><span class="line">    public DbSet&lt;CatalogBrand&gt; CatalogBrands &#123; get; set; &#125; &#x3D; null!;</span><br><span class="line"></span><br><span class="line">    public CatalogDbContext(DbContextOptions&lt;CatalogDbContext&gt; options) : base(options)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    protected override void OnModelCreating(ModelBuilder builder)</span><br><span class="line">    &#123;</span><br><span class="line">        builder.ApplyConfiguration(new CatalogBrandEntityTypeConfiguration());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>出错方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public void TestAsync([FromServices] CatalogDbContext dbContext)</span><br><span class="line">&#123;</span><br><span class="line">    var addBrand &#x3D; new CatalogBrand()</span><br><span class="line">    &#123;</span><br><span class="line">        Brand &#x3D; &quot;apple&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    var entityEntry &#x3D; new EntityEntry(dbContext.GetDependencies().StateManager.GetOrCreateEntry(addBrand, dbContext.Model.FindEntityType(nameof(CatalogBrand))));</span><br><span class="line">    var trackState &#x3D; entityEntry.GetInfrastructure();&#x2F;&#x2F;得到当前实体是否被跟踪</span><br><span class="line"></span><br><span class="line">    dbContext.CatalogBrands.Add(addBrand);</span><br><span class="line"></span><br><span class="line">    trackState &#x3D; entityEntry.GetInfrastructure();</span><br><span class="line"></span><br><span class="line">    dbContext.SaveChanges();</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        var brand &#x3D; dbContext.CatalogBrands.FirstOrDefault(x &#x3D;&gt; x.Id &#x3D;&#x3D; addBrand.Id)!;</span><br><span class="line">        var updateEntityEntry &#x3D; new EntityEntry(dbContext.GetDependencies().StateManager.GetOrCreateEntry(brand, dbContext.Model.FindEntityType(nameof(CatalogBrand))));</span><br><span class="line">        trackState &#x3D; updateEntityEntry.GetInfrastructure();</span><br><span class="line">        brand.Brand &#x3D; &quot;huawei&quot;;</span><br><span class="line">        dbContext.Update(brand);&#x2F;&#x2F;运行到此处，提示entity type &#39;CatalogBrand&#39; cannot be tracked </span><br><span class="line">        dbContext.SaveChanges();</span><br><span class="line">    &#125;</span><br><span class="line">    catch (Exception ex)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(ex.Message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="问题解析">问题解析：</span></h3><p>分析前先思考下面几个问题: </p>
+<ol>
+<li>在根据id查询到品牌后执行Update操作出错，提示当前entity type ‘CatalogBrand’ cannot be tracked ，证明此类在之前已经被跟踪</li>
+<li>明明我们设置的全局不跟踪为何又会被再次跟踪？</li>
+</ol>
+<p>下面我们一步步的排查原因：</p>
+<p>首先在调用Add方法之前查看到当前并未跟踪任何信息</p>
+<p><img src="/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/3.png" alt="Add之前"></p>
+<p>然后执行Add操作后得到如下结果：</p>
+<p><img src="/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/4.png" alt="Add之后"></p>
+<p>在此我们得到一个结果，执行添加操作后会更新当前的实体，翻看源码后确定了我们的猜想：</p>
+<p><img src="/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/1.png" alt="Add Source"></p>
+<p><img src="/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/2.png" alt="Add Source"></p>
+<p>紧接着我们再根据id查询实体，得到如下结果</p>
+<p><img src="/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/5.jpg" alt="Select"></p>
+<p>然后再执行Update，开始抛出异常entity type ‘CatalogBrand’ cannot be tracked </p>
+<p>我们都知道Update中会判断是否跟踪，如果未被跟踪，则先添加跟踪后，再更新信息，由于我们查询到的结果是未被跟踪的，所以会执行Attach，但之前我们在执行Add后已经跟踪当前id的Entity，所以就报错了，那如何解决呢？</p>
+<p>我们在跟踪操作完后进行分离即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbContext.Entry&lt;CatalogBrand&gt;(brand).State &#x3D; EntityState.Detached;&#x2F;&#x2F;让实体独立，不再跟踪</span><br></pre></td></tr></table></figure>
+
+<p>那所有的原因我们就找到了，由于Add、Update等操作后会对实体重新跟踪，所以下方操作的时候就不能再执行再次Attach的操作，又或者每次操作完都进行分离，那下次还可以再进行Attach。</p>
+<p>当然也会有人说我之前一直是查询出来再执行Update，也从没遇到错误，为何这次遇到了呢？这个可以找一下之前的操作是不是没有设置QueryTrackingBehavior.NoTracking，如果我们没有设置不跟踪的话，默认EF是全局跟踪的，正是因为全局跟踪，所以每次查询的时候EF会先从跟踪实体中查询是否有数据，如果有就直接返回，否则再查询新的实体，这块在<a href="https://docs.microsoft.com/zh-cn/ef/core/querying/how-query-works?source=docs#the-life-of-a-query" target="_blank" rel="noopener">官方文档</a>也有说明。如果是不跟踪，那全部都获取新的实体，不再从原来跟踪的实体中查询，所以这也导致我们在查询后得到的实体不是之前跟踪的那个实体，尽管两次的值是一样的。</p>
+<p>既然改为不跟踪有这么多坑，为何我们还要改为不跟踪呢？原因有以下几点：</p>
+<ol>
+<li>改为不跟踪后我们每次得到的结果是当前数据库的最新结果，不会从已跟踪的实体中获取，那就会使得我们可以获取到最新的结果，而不是旧的数据，这对高并发的场景来说是需要的</li>
+<li>跟踪意味着性能损耗，当不跟踪后我们的性能会有提升</li>
+</ol>
+<p>如果我们只是对某几个查询不跟踪，不需要对全局不跟踪，也可以使用<a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.data.entity.queryableextensions.asnotracking?view=entity-framework-6.2.0" target="_blank" rel="noopener">NoTracking()</a>方法，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var brand &#x3D; dbContext.CatalogBrands.Where(x &#x3D;&gt; x.Id &#x3D;&#x3D; addBrand.Id).AsNoTracking().FirstOrDefault()!;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/10/22/EFCore%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/trackBug/" data-id="cl2yutsdz000kdovc250q5fyg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/11/01/Dapr/%E4%BA%8C%E3%80%81%E8%AE%A4%E8%AF%86Dapr/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          二、认识Dapr
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/14/IConfiguration/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">IConfiguration</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/">.Net</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/">Framework</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/Dapr/">Dapr</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag">CSharp基础语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="tag">DI 依赖注入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es/" rel="tag">Es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOC/" rel="tag">IOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore/" rel="tag">NetCore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore%E9%94%99%E8%AF%AF/" rel="tag">NetCore错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dapr/" rel="tag">dapr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" rel="tag">配置(Configuration)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 16px;">CSharp基础语法</a> <a href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" style="font-size: 10px;">DI 依赖注入</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/ElasticSearch/" style="font-size: 20px;">ElasticSearch</a> <a href="/tags/Es/" style="font-size: 18px;">Es</a> <a href="/tags/Framework/" style="font-size: 12px;">Framework</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/NetCore/" style="font-size: 10px;">NetCore</a> <a href="/tags/NetCore%E9%94%99%E8%AF%AF/" style="font-size: 10px;">NetCore错误</a> <a href="/tags/dapr/" style="font-size: 10px;">dapr</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 12px;">设计模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" style="font-size: 10px;">配置(Configuration)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/09/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/%E5%8F%8D%E5%B0%84/">高级编程/反射</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/1.%20%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%AE%A9%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%BD%BB%E6%9D%BE%E4%BD%BF%E7%94%A8Dapr/">1. 一行代码让你的项目轻松使用Dapr</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/2.%20%E8%AE%A9%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E6%9B%B4%E7%AE%80%E5%8D%95/">2. 让服务调用更简单 - Caller.HttpClient</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/4.%20%E5%88%86%E8%AF%8D/">4. 分词</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/3.%20%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/">3. 字段类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 聽雨聲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>聽雨聲-成功來源於不斷的堅持</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="聽雨聲-成功來源於不斷的堅持">
+<meta property="og:url" content="https://blogs.bflove.cn/page/2/index.html">
+<meta property="og:site_name" content="聽雨聲-成功來源於不斷的堅持">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="聽雨聲">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="聽雨聲-成功來源於不斷的堅持" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">聽雨聲-成功來源於不斷的堅持</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blogs.bflove.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-IConfiguration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/14/IConfiguration/" class="article-date">
+  <time datetime="2021-10-14T06:27:20.000Z" itemprop="datePublished">2021-10-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/14/IConfiguration/">IConfiguration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="配置提供程序优先级">配置提供程序优先级</span></h3><blockquote>
+<p>约定：越后添加的配置提供程序优先级越高，优先级高的配置值会覆盖优先级低的配置值</p>
+</blockquote>
+<ol>
+<li>内存配置提供程序 环境变量配置提供程序（prefix: DOTNET_）</li>
+<li>环境变量配置提供程序（prefix: ASPNETCORE_）<br>JSON配置提供程序(appsettings.json)</li>
+<li>JSON配置提供程序(appsettings.{Environment}.json)</li>
+<li>机密管理器（仅Windows）</li>
+<li>环境变量配置提供程序（未限定前缀）</li>
+<li>命令行配置提供程序</li>
+</ol>
+<p><a href="https://www.cnblogs.com/xiaoxiaotank/p/15367747.html" target="_blank" rel="noopener">参考文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/10/14/IConfiguration/" data-id="cl2yutscb0000dovcgewh7asf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" rel="tag">配置(Configuration)</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-NetCore/异或" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/18/NetCore/%E5%BC%82%E6%88%96/" class="article-date">
+  <time datetime="2021-09-18T10:07:36.000Z" itemprop="datePublished">2021-09-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/18/NetCore/%E5%BC%82%E6%88%96/">异或</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="异或是什么">异或是什么？</span></h3><pre><code>异或（ xor）是一个 数学运算符
+
+它应用于 逻辑运算。异或符号为 ^ </code></pre><p>异或的3个特点：</p>
+<ol>
+<li><p>0^0=0,0^1=1  0异或任何数＝任何数</p>
+</li>
+<li><p>1^0=1,1^1=0  1异或任何数－任何数取反</p>
+</li>
+<li><p>1^1=0,0^0=0  任何数异或自己＝把自己置0</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/09/18/NetCore/%E5%BC%82%E6%88%96/" data-id="cl2yutsel001edovc7dki1pi9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetCore/" rel="tag">NetCore</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Docker/docker-compose的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/18/Docker/docker-compose%E7%9A%84%E5%9D%91/" class="article-date">
+  <time datetime="2021-09-18T01:18:08.000Z" itemprop="datePublished">2021-09-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/18/Docker/docker-compose%E7%9A%84%E5%9D%91/">docker-compose的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="支持docker-compose的项目目录层次不能太深使用visual-studio开发遇到项目层级太深一直提示没有安装netcore的sdk启动项目dll失败并且docker容器内也没有发现发布的路径后调整项目层级解决">支持Docker Compose的项目目录层次不能太深，使用Visual Studio开发遇到项目层级太深，一直提示没有安装netcore的sdk，启动项目.dll失败，并且Docker容器内也没有发现发布的路径，后调整项目层级解决</span></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/09/18/Docker/docker-compose%E7%9A%84%E5%9D%91/" data-id="cl2yutsdu000ddovc9v0y6m0e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Docker/docker安装mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/18/Docker/docker%E5%AE%89%E8%A3%85mysql/" class="article-date">
+  <time datetime="2021-09-18T01:18:08.000Z" itemprop="datePublished">2021-09-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/18/Docker/docker%E5%AE%89%E8%A3%85mysql/">docker安装redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="1-下载镜像">1. 下载镜像</span></h3><pre><code>docker pull mysql:latest</code></pre><h3><span id="3-查看镜像">3. 查看镜像</span></h3><pre><code>docker images</code></pre><h3><span id="4-使用镜像创建容器">4. 使用镜像创建容器</span></h3><pre><code>docker run --name mysql -v /E/ProgramFiles/Database/Docker-Mysql/conf:/etc/mysql/conf.d -v /E/ProgramFiles/Database/Docker-Mysql/logs:/logs -v /E/ProgramFiles/Database/Docker-Mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d -i -p 3306:3306 mysql
+
+-p   3306:3306 :将容器的3306端口映射到主机的3306端口
+-v   /E/ProgramFiles/Database/Docker-Mysql/data:/var/lib/mysql :将主机中当前目录下的data挂载到容器的/mysql</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/09/18/Docker/docker%E5%AE%89%E8%A3%85mysql/" data-id="cl2yutsdv000fdovce0ds61s8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Docker/docker安装redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/18/Docker/docker%E5%AE%89%E8%A3%85redis/" class="article-date">
+  <time datetime="2021-09-18T01:18:08.000Z" itemprop="datePublished">2021-09-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/18/Docker/docker%E5%AE%89%E8%A3%85redis/">docker安装redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="1-搜索查找镜像">1. 搜索查找镜像</span></h3><pre><code>docker search redis</code></pre><h3><span id="2-下载镜像">2. 下载镜像</span></h3><pre><code>docker pull redis:latest</code></pre><h3><span id="3-查看镜像并创建redis和redisdata目录">3. 查看镜像并创建redis和redis/data目录</span></h3><pre><code>docker images</code></pre><h3><span id="4-使用镜像创建容器">4. 使用镜像创建容器</span></h3><pre><code>docker run -p 6379:6379 -v $PWD/data:/data -d redis:latest redis-server --appendonly yes
+
+windows： docker run -p 6379:6379 -v /E:/ProgramFiles/Docker-Redis:/data -d redis:latest redis-server --appendonly yes 
+
+-p   6379:6379 :将容器的6379端口映射到主机的6379端口
+-v   $PWD/data:/data :将主机中当前目录下的data挂载到容器的/data
+redis-server --appendonly yes  在容器执行redis-server启动命令，并打开redis持久化配置</code></pre><h3><span id="5-进入容器操作redis">5. 进入容器操作redis</span></h3><pre><code>docker run -it redis:latest redis-cli -h 192.168.163.170或使用docker run -it 标识</code></pre><p>转载于: <a href="https://my.oschina.net/xiaozhiwen/blog/1602628" target="_blank" rel="noopener">https://my.oschina.net/xiaozhiwen/blog/1602628</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/09/18/Docker/docker%E5%AE%89%E8%A3%85redis/" data-id="cl2yutsdx000idovc7975e5rl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-NetCore/endpoints" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/16/NetCore/endpoints/" class="article-date">
+  <time datetime="2021-09-16T08:42:44.000Z" itemprop="datePublished">2021-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/16/NetCore/endpoints/">endpoints</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="错误信息">错误信息：</span></h3><p>EndpointRoutingMiddleware matches endpoints setup by EndpointMiddleware and so must be added to the request execution pipeline before EndpointMiddleware. Please add EndpointRoutingMiddleware by calling ‘IApplicationBuilder.UseRouting’ inside the call to ‘Configure(…)’ in the application startup code.</p>
+<h3><span id="解决办法">解决办法：</span></h3><h3><span id="1-在使用useendpoints之前增加userouting">1. 在使用UseEndpoints之前增加UseRouting</span></h3><pre><code>IEndpointRouteBuilder app;//假使此时app是有值的
+app.UseRouting();
+app.UseEndpoints(endpoint =&gt;
+{
+    endpoint.Map(&quot;/api/v1/payment/HelloWorld&quot;, HelloWorld);
+});</code></pre><h2><span id="2-或者直接使用">2. 或者直接使用</span></h2><pre><code>app.Map(&quot;/api/v1/payment/HelloWorld&quot;, HelloWorld);</code></pre><h4><span id="userouting与useendpoints区别">UseRouting与UseEndpoints区别：</span></h4><pre><code>UseRouting：将EndpointRoutingMiddleware中间件注册到http管道中
+UseEndpoints：将本程序集定义的EndPoint放到路由中间件的配置对象RouteOptions中
+将EndpointMiddleware中间件注册到http管道中
+
+UseRouing 中间件主要是路由匹配，找到匹配的终结者路由Endpoint ；UseEndpoints 中间件主要针对UseRouting 中间件匹配到的路由进行 委托方法的执行等操作。</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/09/16/NetCore/endpoints/" data-id="cl2yutsea0011dovc35p67d29" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetCore%E9%94%99%E8%AF%AF/" rel="tag">NetCore错误</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-高级编程/Aop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/30/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Aop/" class="article-date">
+  <time datetime="2021-08-30T04:01:16.000Z" itemprop="datePublished">2021-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/30/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Aop/">Aop</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Aop的织入原理分为动态织入以及静态织入</p>
+<p>动态织入：</p>
+<pre><code>程序运行过程中织入的是动态织入，因此也被称为运行时增强（基于接口实现、基于类实现）。在.NET中可以有两种实现：采用“装饰者模式”设计项目类库来实现；基于透明代理(TransparentProxy)/真实代理(RealProxy)来实现</code></pre><p>静态织入：</p>
+<pre><code>通过扩展编译器对代码的中间语言(IL)插入代码的方式实现对目标对象的调用拦截，在编译时期就织入，即编译出来的class文件，字节码就已经被织入了，从而在编译阶段就可生成Aop代理类，因此也被称为编译时增强（特殊编译器实现、特殊的类加载器实现）</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/08/30/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Aop/" data-id="cl2yutsen001idovcec13gcct" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Dapr/一、Dapr安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/26/Dapr/%E4%B8%80%E3%80%81Dapr%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2021-08-26T08:30:39.000Z" itemprop="datePublished">2021-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/26/Dapr/%E4%B8%80%E3%80%81Dapr%E5%AE%89%E8%A3%85/">一、Dapr安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Windows</p>
+<p>步骤1：使用管理员打开Powershell</p>
+<pre><code>Set-ExecutionPolicy RemoteSigned -scope CurrentUser</code></pre><p>步骤2：执行安装命令</p>
+<pre><code>iwr -useb https://raw.githubusercontent.com/dapr/cli/master/install/install.ps1 | iex</code></pre><p>步骤3：验证dapr是否安装成功</p>
+<pre><code>dapr</code></pre><p>步骤4：验证Dapr版本</p>
+<pre><code>dapr --version 或者 dapr -v</code></pre><p>步骤5：运行init cli命令</p>
+<pre><code>dapr init</code></pre><p>步骤6：验证容器正在运行</p>
+<pre><code>docker ps
+
+请确保镜像为daprio/dapr, openzipkin/zipkin和 redis 的容器都在运行：</code></pre><p><img src="/2021/08/26/Dapr/%E4%B8%80%E3%80%81Dapr%E5%AE%89%E8%A3%85/%E9%AA%8C%E8%AF%81%E5%AE%B9%E5%99%A8%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C.png" alt="验证容器正在运行"></p>
+<p>疑问：</p>
+<ol>
+<li><p>执行步骤2出错，挂代理安装再试（需要使用powershell运行安装命令）</p>
+</li>
+<li><p>dapr出错，使用管理员权限重新打开powershell、再运行dapr即可</p>
+</li>
+<li><p>当运行dapr init出错，提示以下错误：</p>
+<p> Making the jump to hyperspace…<br> Failed to get runtime version: ‘<a href="https://api.github.com/repos/dapr/dapr/releases" target="_blank" rel="noopener">https://api.github.com/repos/dapr/dapr/releases</a> - 403 Forbidden’. Trying secondary source<br> cannot get the latest release version: ‘Get “<a href="https://dapr.github.io/helm-charts/index.yaml&quot;" target="_blank" rel="noopener">https://dapr.github.io/helm-charts/index.yaml&quot;</a>: read tcp 192.120.5.172:55698-&gt;185.199.111.153:443: wsarecv: An existing connection was forcibly closed by the remote host.’. Try specifying –runtime-version=<desired_version></desired_version></p>
+<p> 解决办法：根据当前安装的dapr版本，初始化时选择对应版本安装，例如：dapr init –runtime-version=1.3.0 (需要挂全局代理安装)</p>
+</li>
+</ol>
+<p><a href="https://docs.dapr.io/zh-hans/getting-started/install-dapr-selfhost/" target="_blank" rel="noopener">参考文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/08/26/Dapr/%E4%B8%80%E3%80%81Dapr%E5%AE%89%E8%A3%85/" data-id="cl2yutsdn0006dovc6sykfpfv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Dotnet/dotnet-nuget" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/19/Dotnet/dotnet-nuget/" class="article-date">
+  <time datetime="2021-08-19T03:46:08.000Z" itemprop="datePublished">2021-08-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/19/Dotnet/dotnet-nuget/">dotnet_nuget</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>nuget 打包</p>
+<p>dotnet pack –configuration Release -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg –output nupkgs<br>或者简写为<br>dotnet pack -c Release -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg –output nupkgs</p>
+<p>–output：输出路径<br>–configuration：环境配置<br>-p:IncludeSymbols 包含symbols<br>-p:SymbolPackageFormat 输出符号包 (.snupkg)</p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-pack" target="_blank" rel="noopener">查看文档</a></p>
+<p>nuget 推送</p>
+<p>dotnet nuget push *.nupkg –key %key%  –source <a href="https://nuget.pkg.github.com/zhenlei520/index.json" target="_blank" rel="noopener">https://nuget.pkg.github.com/zhenlei520/index.json</a> –skip-duplicate<br>或者简写为<br>dotnet nuget push *.nupkg -k %key%  -s <a href="https://nuget.pkg.github.com/zhenlei520/index.json" target="_blank" rel="noopener">https://nuget.pkg.github.com/zhenlei520/index.json</a> –skip-duplicate</p>
+<p>–source：nuget package source<br>–key：nuget api key、用于管理nuget包<br>–skip-duplicate：跳过错误继续推送</p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-nuget-push" target="_blank" rel="noopener">查看文档</a></p>
+<p>nuget 删除</p>
+<p>dotnet nuget delete package version -s <a href="https://nuget.pkg.github.com/zhenlei520/index.json" target="_blank" rel="noopener">https://nuget.pkg.github.com/zhenlei520/index.json</a>  -key 秘钥</p>
+<p>例如：<br>dotnet nuget delete Microsoft.AspNetCore.Mvc 1.0 -s <a href="https://nuget.pkg.github.com/zhenlei520/index.json" target="_blank" rel="noopener">https://nuget.pkg.github.com/zhenlei520/index.json</a>  -key 秘钥</p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-nuget-delete" target="_blank" rel="noopener">查看文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/08/19/Dotnet/dotnet-nuget/" data-id="cl2yutsdy000jdovc6026g0v3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSharp基础语法/三、静态类与单例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E4%B8%89%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E4%B8%8E%E5%8D%95%E4%BE%8B/" class="article-date">
+  <time datetime="2021-07-19T12:18:00.000Z" itemprop="datePublished">2021-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E4%B8%89%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E4%B8%8E%E5%8D%95%E4%BE%8B/">三、静态类与单例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2><span id="两者区别">两者区别</span></h2><ol>
+<li>单例可以继承类以及被继承和实现接口以及支持重写（override），而静态类不能继承和被继承以及实现接口以及重写（override）</li>
+<li>静态类是在首次加载时初始化，而单例是在其静态对象被使用时加载初始化（延迟初始化）</li>
+<li>单例对象存储在堆中，而静态类存储在堆栈中</li>
+<li>单例对象有构造函数、静态类则没有</li>
+<li>单例对象可以克隆、但静态类不能被克隆</li>
+<li>静态类比单例模式的效率更高，因为其在编译期就完成了静态绑定</li>
+<li>单例是受控制的静态对象，如果类对象被释放了、单例对象也会被释放，而静态类则不会被释放，仅在项目退出才释放</li>
+</ol>
+<h2><span id="什么情况下使用静态类">什么情况下使用静态类</span></h2><ol>
+<li>类中没有任何状态性质的属性，只是提供了一些公共的方法</li>
+</ol>
+<h2><span id="什么情况下使用单例">什么情况下使用单例</span></h2><ol>
+<li>类中需要维护一些状态信息</li>
+<li>需要被克隆</li>
+</ol>
+<h2><span id="单例优点">单例优点</span></h2><p>可以通过继承实现多态、且可以被克隆、在类对象被释放后也会随之释放</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E4%B8%89%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E4%B8%8E%E5%8D%95%E4%BE%8B/" data-id="cl2yutsdm0004dovc9cek9q2k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag">CSharp基础语法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/">.Net</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/">Framework</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/Dapr/">Dapr</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag">CSharp基础语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="tag">DI 依赖注入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es/" rel="tag">Es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOC/" rel="tag">IOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore/" rel="tag">NetCore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore%E9%94%99%E8%AF%AF/" rel="tag">NetCore错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dapr/" rel="tag">dapr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" rel="tag">配置(Configuration)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 16px;">CSharp基础语法</a> <a href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" style="font-size: 10px;">DI 依赖注入</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/ElasticSearch/" style="font-size: 20px;">ElasticSearch</a> <a href="/tags/Es/" style="font-size: 18px;">Es</a> <a href="/tags/Framework/" style="font-size: 12px;">Framework</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/NetCore/" style="font-size: 10px;">NetCore</a> <a href="/tags/NetCore%E9%94%99%E8%AF%AF/" style="font-size: 10px;">NetCore错误</a> <a href="/tags/dapr/" style="font-size: 10px;">dapr</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 12px;">设计模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" style="font-size: 10px;">配置(Configuration)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/09/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/%E5%8F%8D%E5%B0%84/">高级编程/反射</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/1.%20%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%AE%A9%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%BD%BB%E6%9D%BE%E4%BD%BF%E7%94%A8Dapr/">1. 一行代码让你的项目轻松使用Dapr</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/2.%20%E8%AE%A9%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E6%9B%B4%E7%AE%80%E5%8D%95/">2. 让服务调用更简单 - Caller.HttpClient</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/4.%20%E5%88%86%E8%AF%8D/">4. 分词</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/3.%20%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/">3. 字段类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 聽雨聲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

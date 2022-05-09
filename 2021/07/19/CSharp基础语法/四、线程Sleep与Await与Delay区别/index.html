@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>四、线程Sleep与Await与Delay | 聽雨聲-成功來源於不斷的堅持</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Sleep与Delay的区别 Thread.Sleep 是同步延迟，Task.Delay异步延迟 Thread.Sleep 会阻塞线程，Task.Delay不会 Thread.Sleep 不能取消，Task.Delay 可以 Task.Delay() 比 Thread.Sleep() 消耗更多的资源 Task.Delay() 实质创建一个运行给定时间的任务， Thread.Sleep() 使当前线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四、线程Sleep与Await与Delay">
+<meta property="og:url" content="https://blogs.bflove.cn/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E5%9B%9B%E3%80%81%E7%BA%BF%E7%A8%8BSleep%E4%B8%8EAwait%E4%B8%8EDelay%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:site_name" content="聽雨聲-成功來源於不斷的堅持">
+<meta property="og:description" content="Sleep与Delay的区别 Thread.Sleep 是同步延迟，Task.Delay异步延迟 Thread.Sleep 会阻塞线程，Task.Delay不会 Thread.Sleep 不能取消，Task.Delay 可以 Task.Delay() 比 Thread.Sleep() 消耗更多的资源 Task.Delay() 实质创建一个运行给定时间的任务， Thread.Sleep() 使当前线">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-19T12:18:00.000Z">
+<meta property="article:modified_time" content="2022-05-09T14:59:15.913Z">
+<meta property="article:author" content="聽雨聲">
+<meta property="article:tag" content="CSharp基础语法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="聽雨聲-成功來源於不斷的堅持" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">聽雨聲-成功來源於不斷的堅持</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blogs.bflove.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSharp基础语法/四、线程Sleep与Await与Delay区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E5%9B%9B%E3%80%81%E7%BA%BF%E7%A8%8BSleep%E4%B8%8EAwait%E4%B8%8EDelay%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2021-07-19T12:18:00.000Z" itemprop="datePublished">2021-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      四、线程Sleep与Await与Delay
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2><span id="sleep与delay的区别">Sleep与Delay的区别</span></h2><ol>
+<li>Thread.Sleep 是同步延迟，Task.Delay异步延迟</li>
+<li>Thread.Sleep 会阻塞线程，Task.Delay不会</li>
+<li>Thread.Sleep 不能取消，Task.Delay 可以</li>
+<li>Task.Delay() 比 Thread.Sleep() 消耗更多的资源</li>
+<li>Task.Delay() 实质创建一个运行给定时间的任务， Thread.Sleep() 使当前线程休眠给定时间</li>
+<li>同步代码中使用Task.Delay是没有意义的，异步方法中使用Thread.Sleep()是非常糟糕的注意、通过使用await关键字调用Task.Delay()进行延迟</li>
+</ol>
+<h2><span id="sleep与await的区别">Sleep与Await的区别</span></h2><ol>
+<li>Sleep是线程类的方法，可以使当前线程暂时睡眠，可以放到任何位置、而wait是Object类的方法，它是使当前线程暂时放弃对象的使用权进行等待，必须放在同步方法中或者同步块里</li>
+<li>Sleep使用的时候，线程并不会放弃对象的使用权，即不会释放对象锁，所在在同步方法或同步块中使用sleep，一个线程访问时，其他的线程也是无法访问的。而wait是会释放对象锁的，就是当前线程放弃对象的使用权，让其他线程可以访问</li>
+<li>线程执行wait方法时，需要另外一个线程调用notify进行唤醒，而sleep只是暂时休眠了一定时间，时间到了之后，自动恢复运行，不需要另外的线程唤醒</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blogs.bflove.cn/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E5%9B%9B%E3%80%81%E7%BA%BF%E7%A8%8BSleep%E4%B8%8EAwait%E4%B8%8EDelay%E5%8C%BA%E5%88%AB/" data-id="cl2yutsdo0007dovc2r7mf71d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag">CSharp基础语法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/19/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E4%B8%89%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E4%B8%8E%E5%8D%95%E4%BE%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          三、静态类与单例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/29/ElasticSearch/old/%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E7%BB%93%E6%9E%84%E5%8C%96%E6%90%9C%E7%B4%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">结构化搜索</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/">.Net</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/">Framework</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Net/Framework/Dapr/">Dapr</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag">CSharp基础语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="tag">DI 依赖注入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es/" rel="tag">Es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOC/" rel="tag">IOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore/" rel="tag">NetCore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetCore%E9%94%99%E8%AF%AF/" rel="tag">NetCore错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dapr/" rel="tag">dapr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" rel="tag">配置(Configuration)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSharp%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" style="font-size: 16px;">CSharp基础语法</a> <a href="/tags/DI-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" style="font-size: 10px;">DI 依赖注入</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/ElasticSearch/" style="font-size: 20px;">ElasticSearch</a> <a href="/tags/Es/" style="font-size: 18px;">Es</a> <a href="/tags/Framework/" style="font-size: 12px;">Framework</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/NetCore/" style="font-size: 10px;">NetCore</a> <a href="/tags/NetCore%E9%94%99%E8%AF%AF/" style="font-size: 10px;">NetCore错误</a> <a href="/tags/dapr/" style="font-size: 10px;">dapr</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 12px;">设计模式</a> <a href="/tags/%E9%85%8D%E7%BD%AE-Configuration/" style="font-size: 10px;">配置(Configuration)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/09/%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/%E5%8F%8D%E5%B0%84/">高级编程/反射</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/1.%20%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%AE%A9%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%BD%BB%E6%9D%BE%E4%BD%BF%E7%94%A8Dapr/">1. 一行代码让你的项目轻松使用Dapr</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/Masa/framework/practice/2.%20%E8%AE%A9%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E6%9B%B4%E7%AE%80%E5%8D%95/">2. 让服务调用更简单 - Caller.HttpClient</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/4.%20%E5%88%86%E8%AF%8D/">4. 分词</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/13/ElasticSearch/3.%20%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/">3. 字段类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 聽雨聲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
